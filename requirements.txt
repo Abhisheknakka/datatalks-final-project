@@ -1,0 +1,11 @@
+#pip install - requirements.txt
+
+openai
+python-dotenv
+elasticsearch
+groq
+tiktoken
+genism
+-U sentence-transformers
+faiss-cpu
+pgcli
