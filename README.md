@@ -1,6 +1,6 @@
 # Restaurant Menu Assistant Chatbot
 
-![Demo Image](fig/demo.jpeg)
+<img src="fig/demo.jpeg" alt="Demo Image" width="300"/>
 
 # Project overview
 
