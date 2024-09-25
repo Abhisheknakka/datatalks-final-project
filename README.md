@@ -1,6 +1,6 @@
 # Restaurant Menu Assistant Chatbot
 
-<img src="fig/demo.jpeg" alt="Demo Image" width="300"/>
+<img src="fig/demo.jpeg" alt="" width="500"/>
 
 # Project overview
 
@@ -34,6 +34,17 @@ Here's a breakdown of the key columns and their meanings:
 
 11. price: The price associated with the dish, possibly in dollars or another currency (e.g., 24).
 
+
+## Tech Stack
+
+•   Embeddings: Huggingface Transformers (multi-qa-MiniLM-L6-cos-v1) 🤖
+•   Vector Store: LanceDB 🗂️
+•   Info Retrieval: Tantivy 🔍, Cosine Similarity 🔗, cross-encoder reranker, sentence-window retrieval
+•   LLM API: Groq cloud, open ai 
+•   Web App: Streamlit 🖥️
+•   Deployment: Streamlit Cloud 🌐
+•   User Database: MongoDB 📦
+
 ## Features
 
 - **Natural Language Interaction**: Communicate with the chatbot in natural language, asking questions about the restaurant menu, dishes, ingredients, and more.
@@ -41,10 +52,29 @@ Here's a breakdown of the key columns and their meanings:
 - **Streamlit UI**: An intuitive and user-friendly Streamlit interface provides an interactive chat experience.
 - **RAG-Powered**: The chatbot utilizes the power of Retrieval Augmented Generation to provide relevant and accurate information tailored to user queries.
 
-## Dataset
+## Project Structure
 
-In this project, we used the following dataset:
-- **Restaurant Menu Dataset**: Available in the `dataset` folder as `main_faq_database.json`.
+```plaintext
+├── scripts
+│   ├── ingestion_with_qdrant.py
+│   ├── ingestion_with_elasticsearch.py
+│   ├── retrieval_evaluator_qdrant.py
+│   ├── retrieval_evaluator_elasticsearch.py
+│   ├── rag_evaluator.py
+│   ├── dashboard.py
+│   ├── diabetesRag.py
+├── diabetesRag.py               
+├── dashboard.py                
+├── README.md
+├── requirements.txt
+├── docker-compose.yaml
+├── .streamlit
+│   └── config.toml
+├── database.db           
+└── images                
+    ├── dashboard.jpg
+    ├── user_feedback.jpg
+```
 
 ## Data Ingestion
 
