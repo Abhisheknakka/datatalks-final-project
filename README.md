@@ -96,10 +96,34 @@ pip install -r requirements.txt
 
 ```
 
-4.
-```bash
+4. Environment Variables
+
+This project relies on environment variables to configure API access. You will need to create a .env file in the root of your project directory with the following structure:
+
+Example .env File
+
+```plaintext
+# API_HOST can be either 'groq', 'openai', 'ollama':
+API_HOST=groq
+
+# Needed for Groq:
+GROQ_API_KEY='your groq api key'
+GROQ_MODEL=llama3-8b-8192 (my model, you can replace with your model name)
+
+# Needed for Ollama:
+OLLAMA_ENDPOINT=http://localhost:11434/v1
+OLLAMA_MODEL=llama3.1
+
+# Needed for OpenAI.com:
+OPENAI_API_KEY='your openai api key'
+OPENAI_MODEL=gpt-3.5-turbo (my model, you can replace with your model name)
 
 ```
+### How to Set Up
+Create a .env file in the root of your project directory.
+Copy the example provided above into your .env file.
+Replace placeholder values with your actual API keys and model names as needed.
+
 
 ## Data Ingestion
 
