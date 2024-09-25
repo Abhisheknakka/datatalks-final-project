@@ -125,7 +125,7 @@ Copy the example provided above into your .env file.
 Replace placeholder values with your actual API keys and model names as needed.
 
 
-## Data Ingestion
+5. Data Ingestion
 
 Before running the application, you need to perform data ingestion. Run the Python script `menu_assistant/data_ingestion.py` to load the data into the knowledge base.
 
@@ -133,14 +133,63 @@ Before running the application, you need to perform data ingestion. Run the Pyth
 cd datatalks-final-project/menu_assistant
 python data_ingestion.py
 ```
+6. Retrieval Performance
 
-## How to Use
-Initialize the Streamlit application
+To evaluate the Qdrant retrieval:
+
+```bash
+python scripts/retrieval_evaluator_qdrant.py
+```
+
+Qdrant Evaluation Results:
+HitRATE: 0.6375
+MRR: 0.4593
+
+To evaluate Elasticsearch retrieval (both hybrid and vector-only search):
+
+```bash
+python scripts/retrieval_evaluator_elasticsearch.py
+```
+
+Elasticsearch Evaluation Results:
+
+Hybrid Search:
+HitRATE: 0.64375
+MRR: 0.4605
+Vector-Only Search:
+HitRATE: 0.6375
+MRR: 0.4593
+
+7. Evaluate RAG Performance
+
+To evaluate the RAG flow:
+
+```bash
+python scripts/rag_evaluator.py
+```
+
+RAG Evaluation Results:
+
+Average Cosine Similarity: 0.85 (across 30 questions)
+
+8. Run the Streamlit application
+Launch the Streamlit app to interact with the RAG system:
 
 ```bash
 cd datatalks-final-project/menu_assistant
 streamlit run app.py
 ```
+
+<img src="fig/ui.jpeg" alt="" width="500"/>
+
+9. Monitoring and User Feedback
+To monitor the application and view user feedback, run the dashboard:
+
+```bash
+streamlit run monitoring_dashboard.py
+```
+The system includes a monitoring feature that collects user feedback and displays it on a dashboard created with Streamlit and Plotly. The dashboard includes various charts to track system performance and user interactions. Link to Monitoring Dashboard -> https://monitoringdashboard.streamlit.app/
+
 
 
 ## Disclaimer
