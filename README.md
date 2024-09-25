@@ -75,6 +75,31 @@ Here's a breakdown of the key columns and their meanings:
     ├── dashboard.jpg
     ├── user_feedback.jpg
 ```
+## Setup Instructions
+
+1. Clone the Repository
+
+```bash
+git clone https://github.com/Abhisheknakka/datatalks-final-project.git
+cd datatalks-final-project.git
+```
+
+2. Install Dependencies
+Make sure you have Python 3.8+ installed. Install the required Python packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+3. Prepare DATA
+```bash
+
+```
+
+4.
+```bash
+
+```
 
 ## Data Ingestion
 
