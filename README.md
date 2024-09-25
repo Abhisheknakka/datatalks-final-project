@@ -63,25 +63,64 @@ Here's a breakdown of the key columns and their meanings:
 ## Project Structure
 
 ```plaintext
-├── scripts
-│   ├── ingestion_with_qdrant.py
-│   ├── ingestion_with_elasticsearch.py
-│   ├── retrieval_evaluator_qdrant.py
-│   ├── retrieval_evaluator_elasticsearch.py
-│   ├── rag_evaluator.py
-│   ├── dashboard.py
-│   ├── diabetesRag.py
-├── diabetesRag.py               
-├── dashboard.py                
+📂 datatalks-final-project
+│
+├── .env
+├── .env.groq
+├── .env.ollama
+├── .env.openai
+├── .gitignore
+├── image-1.png
+├── image.png
+├── minsearch.py
 ├── README.md
 ├── requirements.txt
-├── docker-compose.yaml
-├── .streamlit
-│   └── config.toml
-├── database.db           
-└── images                
-    ├── dashboard.jpg
-    ├── user_feedback.jpg
+│
+├── 📂 dataset
+│   ├── cakes_data.csv
+│   ├── generate_dataset.py
+│   ├── main_faq_database.json
+│   ├── rag-eval-groq-turbo.csv
+│   ├── user_questions.json
+│   └── 📂 gold_standard_data
+│       ├── generate_ground_truth.ipynb
+│       └── ground-truth-data.csv
+│
+├── 📂 fig
+│   ├── demo.jpeg
+│   └── ui.jpeg
+│
+├── 📂 menu_assistant
+│   ├── app.py
+│   ├── data_ingestion.py
+│   ├── minsearch.py
+│   └── 📂 __pycache__
+│       ├── app.py
+│       └── minsearch.cpython-312.pyc
+│
+├── 📂 notebooks
+│   ├── minsearch.py
+│   ├── min_search_retreival_and_rag_evaluation.ipynb
+│   ├── search_results_comparison.csv
+│   └── 📂 __pycache__
+│       └── minsearch.cpython-312.pyc
+│
+└── 📂 testing (Please ignore this folder, it was for my testing purpose)
+    ├── cakes_data.csv
+    ├── demo_es.ipynb
+    ├── dish_data.csv
+    ├── food_user_qa_dataset.json
+    ├── generate_menu_qa_dataset.py
+    ├── menu_items.csv
+    ├── rag-eval-gpt-3.5-turbo.csv
+    ├── sample.json
+    ├── user_questions.json
+    └── 📂 jack_menu
+        ├── jacks_restaurant_data.py
+        ├── jacks_restaurant_data_v3.json
+        ├── jacks_restaurant_data_v3.py
+        └── logo.jpg
+
 ```
 ## Setup Instructions
 
