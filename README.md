@@ -1,7 +1,6 @@
 # Restaurant Menu Assistant Chatbot
 
-![alt text](fig/demo.jpeg)
-
+![Demo Image](fig/demo.jpeg)
 
 # Project overview
 
