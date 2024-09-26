@@ -2,13 +2,18 @@ import json
 import os
 import minsearch
 from tqdm import tqdm
+import sys
+import os
+
+# Add the parent directory to the system path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+# Now you can import the config module
 import config
 
-# Setup project paths
-base_folder = 'D:/Projects/AI-Restaurent-Chat-bot/'
-input_data_folder = base_folder + 'dataset/'
 
-def load_index(data_path=input_data_folder + "main_faq_database.json"):
+
+def load_index(data_path=config.dataset_folder + "main_faq_database.json"):
     # Load the JSON file
     with open(data_path, 'r') as f:
         data = json.load(f)

@@ -1,14 +1,23 @@
 import json
 import pandas as pd
+import sys
+import os
+
+# Add the parent directory to the system path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+# Now you can import the config module
+import config
+
 # Setup project paths
 base_folder = 'D:/Projects/datatalks-final-project/'
 input_data_folder = base_folder + 'dataset/'
 
 # Read menu items from CSV
-menu_items_df = pd.read_csv(input_data_folder+'cakes_data.csv')
+menu_items_df = pd.read_csv(config.dataset_folder+'cakes_data.csv')
 
 # Read questions from JSON file
-with open(input_data_folder+'user_questions.json', 'r') as f:
+with open(config.dataset_folder+'user_questions.json', 'r') as f:
     questions = json.load(f)
 
 # Convert DataFrame to list of dictionaries (each representing a menu item)
@@ -63,5 +72,5 @@ final_data = {
 }
 
 # Write to JSON file
-with open(input_data_folder+'main_faq_database.json', 'w') as f:  # Adjust filename as needed
+with open(config.dataset_folder+'main_faq_database.json', 'w') as f:  # Adjust filename as needed
     json.dump(final_data, f, indent=2)
