@@ -189,44 +189,47 @@ Before running the application, you need to perform data ingestion. Run the Pyth
 cd datatalks-final-project/menu_assistant
 python data_ingestion.py
 ```
+
 6. Retrieval Performance
 
-To evaluate the Qdrant retrieval:
+The basic approach - using minsearch without any boosting - gave the following metrics:
+{'hit_rate': 0.5956918981061293, 'mrr': 0.3399384220722044}
+Hit rate: 59%
+MRR: 33%
+
+The improved version (with tuned boosting):
+
+after boost
+```plaintext
+     'question': 2.5,       # High priority: users are searching questions
+    'dish_name': 1.7,      # Important for matching specific dishes
+    'section': 1.2,        # Moderate boost: helps in filtering by category
+    'text': 1.3        # Slight boost: could help match answer content} 
+```
+{'hit_rate': 0.6356870575422037, 'mrr': 0.3578888226192652}
+
+Hit rate: 63%
+MRR: 35%
 
 ```bash
-python scripts/retrieval_evaluator_qdrant.py
+python scripts/min_search_retreival_and_rag_evaluation.ipynb
 ```
-
-Qdrant Evaluation Results:
-HitRATE: 0.6375
-MRR: 0.4593
-
-To evaluate Elasticsearch retrieval (both hybrid and vector-only search):
-
-```bash
-python scripts/retrieval_evaluator_elasticsearch.py
-```
-
-Elasticsearch Evaluation Results:
-
-Hybrid Search:
-HitRATE: 0.64375
-MRR: 0.4605
-Vector-Only Search:
-HitRATE: 0.6375
-MRR: 0.4593
 
 7. Evaluate RAG Performance
 
-To evaluate the RAG flow:
-
-```bash
-python scripts/rag_evaluator.py
-```
+We used the LLM-as-a-Judge metric to evaluate the quality of our RAG flow.
 
 RAG Evaluation Results:
 
-Average Cosine Similarity: 0.85 (across 30 questions)
+For ```groq```, in a sample with 50 records, we had:
+
+UNKNOWN            0.54
+RELEVANT           0.24
+PARTLY_RELEVANT    0.14
+NON_RELEVANT       0.08
+
+results stored in file ```rag-eval-llama3-8b-8192.csv```
+
 
 8. Run the Streamlit application
 Launch the Streamlit app to interact with the RAG system:

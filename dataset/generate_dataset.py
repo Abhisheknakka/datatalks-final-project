@@ -1,11 +1,14 @@
 import json
 import pandas as pd
+# Setup project paths
+base_folder = 'D:/Projects/datatalks-final-project/'
+input_data_folder = base_folder + 'dataset/'
 
 # Read menu items from CSV
-menu_items_df = pd.read_csv('cakes_data.csv')
+menu_items_df = pd.read_csv(input_data_folder+'cakes_data.csv')
 
 # Read questions from JSON file
-with open('user_questions.json', 'r') as f:
+with open(input_data_folder+'user_questions.json', 'r') as f:
     questions = json.load(f)
 
 # Convert DataFrame to list of dictionaries (each representing a menu item)
@@ -60,5 +63,5 @@ final_data = {
 }
 
 # Write to JSON file
-with open('main_faq_database.json', 'w') as f:  # Adjust filename as needed
+with open(input_data_folder+'main_faq_database.json', 'w') as f:  # Adjust filename as needed
     json.dump(final_data, f, indent=2)
