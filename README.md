@@ -250,6 +250,19 @@ streamlit run monitoring_dashboard.py
 The system includes a monitoring feature that collects user feedback and displays it on a dashboard created with Streamlit and Plotly. The dashboard includes various charts to track system performance and user interactions. Link to Monitoring Dashboard -> https://monitoringdashboard.streamlit.app/
 
 
+## Code
+
+Code
+The code for the application is in the ```menu_assistant``` folder:
+
+app.py - the streamlit  application, entry point of the app.
+rag.py - the main RAG logic for building the retrieving the data and building the prompt
+ingest.py - loading the data into the knowledge base
+minsearch.py - an in-memory search engine
+db.py - the logic for logging the requests and responses to postgres
+db_prep.py - the script for initializing the database
+
+
 
 ## Disclaimer
 This chatbot is for informational purposes only and was created as a project for the LLM Zoomcamp course. The first draft has been submitted, and further work including dashboard and database integration will be completed before the next attempt.

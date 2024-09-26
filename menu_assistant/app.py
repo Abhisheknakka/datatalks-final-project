@@ -1,11 +1,12 @@
 import streamlit as st
+import os
 import time
 from dotenv import load_dotenv
-import os
-import openai  # Fix the import statement
+from openai import OpenAI
 from groq import Groq
 import minsearch
 import json
+import rag
 
 # Load environment variables
 load_dotenv()
@@ -14,104 +15,56 @@ load_dotenv()
 API_HOST = os.getenv("API_HOST")
 
 if API_HOST == "groq":
-    client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+    client = Groq(
+        api_key=os.getenv("GROQ_API_KEY")
+    )
     MODEL_NAME = os.getenv("GROQ_MODEL")
+
 elif API_HOST == "ollama":
-    client = openai.OpenAI(
+    client = OpenAI(
         base_url=os.getenv("OLLAMA_ENDPOINT"),
-        api_key="nokeyneeded",
+        api_key="nokeyneeded"
     )
     MODEL_NAME = os.getenv("OLLAMA_MODEL")
+
 elif API_HOST == "openai":
-    client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
     MODEL_NAME = os.getenv("OPENAI_MODEL")
-    
 else:
-    client = openai.OpenAI(
-        base_url="https://models.inference.ai.azure.com",
-        api_key=os.getenv("GITHUB_TOKEN")
-    )
-    MODEL_NAME = os.getenv("GITHUB_MODEL")
+    st.write("No LLM Selected")
+    st.stop()
 
-# Load dataset
-base_folder = 'D:/Projects/AI-Restaurent-Chat-bot/'
-input_data_folder = base_folder + 'dataset/'
+# App Title
+st.title("Restaurant Chatbot with RAG")
 
-with open(input_data_folder + 'main_faq_database.json', 'rt') as f_in:
-    data = json.load(f_in)
+# Input for the user query
+query = st.text_input("Enter your question about the restaurant menu:")
 
-# Prepare documents for search index
-documents = []
-for dish in data['dishes']:
-    dish_name = dish['dish name']
-    for doc in dish['documents']:
-        doc['dish_name'] = dish_name  # Add dish_name to each document
-        documents.append(doc)
+# Button to handle question submission
+if st.button("Submit"):
+    if not query:
+        st.error("Please enter a question.")
+    else:
+        with st.spinner("Fetching answer..."):
+            # Call the RAG pipeline
+            answer_data = rag.rag(query, model=MODEL_NAME)
 
-# Initialize the search index
-index = minsearch.Index(
-    text_fields=['id', 'question', 'section', 'text', 'dish_name'],
-    keyword_fields=['dish_name']
-)
-index.fit(documents)
+            # Display the result
+            st.write(f"Question: {query}")
+            st.write(f"Answer: {answer_data['answer']}")
+            st.write(f"Response Time: {answer_data['response_time']} seconds")
+            st.write(f"Relevance: {answer_data['relevance']}")
+            st.write(f"Cost: ${answer_data['openai_cost']:.6f}")
 
-# Search function using minsearch
-def minsearch(query):
-    return index.search(query)
+# Feedback Section
+st.subheader("Provide Feedback")
 
-# Prompt building function
-def build_prompt(query, search_results):
-    prompt_template = """
-    You are a highly trained professional and helpful assistant that answers questions about food based off a menu dataset.
-    You must use the dataset to answer the questions, you should not provide any info that is not in the provided sources.
-    Answer the questions which user asks based on the CONTEXT.
-    QUESTION :{question}
-    CONTEXT : {context}
-    """.strip()
-    
-    # Create context from search results
-    context = ""
-    for doc in search_results:
-        context += f"section: {doc['section']}\nquestion: {doc['question']}\nanswer: {doc['text']}\n\n"
-    
-    prompt = prompt_template.format(question=query, context=context).strip()
-    return prompt
+conversation_id = st.text_input("Enter Conversation ID for Feedback:")
+feedback = st.radio("Feedback:", options=[1, -1], index=0)
 
-# Function to interact with LLM
-def llm(prompt):
-    response = client.chat.completions.create(
-        model=MODEL_NAME,
-        messages=[{"role": "user", "content": prompt}]
-    )
-    return response.choices[0].message.content
-
-# RAG function
-def rag(query):
-    # Get search results
-    search_results = minsearch(query)
-    
-    # Check if search results are valid
-    if not search_results:
-        return "I couldn't find any relevant information in the dataset."
-
-    # Build prompt based on search results
-    prompt = build_prompt(query, search_results)
-    
-    # Get answer from LLM
-    answer = llm(prompt)
-    return answer
-
-# Main app function
-def main():
-    st.title("Jack's Chat Application")
-    user_input = st.text_input("Chatbot is ready to help with the menu. Ask your questions:")
-
-    if st.button("Ask"):
-        with st.spinner('Processing...'):
-            output = rag(user_input)
-            st.success("Completed!")
-            st.write(output)
-
-if __name__ == "__main__":
-    main()
-
+if st.button("Submit Feedback"):
+    if not conversation_id:
+        st.error("Please enter a valid conversation ID.")
+    else:
+        # In reality, this would save the feedback to a database or file.
+        st.success(f"Feedback received for conversation {conversation_id}: {feedback}")

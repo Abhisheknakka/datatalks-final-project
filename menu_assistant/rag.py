@@ -18,7 +18,7 @@ API_HOST = os.getenv("API_HOST")
 if API_HOST == "groq":
     client = client = Groq(
     api_key=os.environ.get("GROQ_API_KEY"),
-)
+    )
     MODEL_NAME = os.getenv("GROQ_MODEL")
 
 elif API_HOST == "ollama":
@@ -35,7 +35,6 @@ else:
     print("No LLM Selected")
 
 
-client = OpenAI()
 index = ingest.load_index()
 
 
