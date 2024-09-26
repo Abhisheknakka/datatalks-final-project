@@ -45,6 +45,15 @@ Here's a breakdown of the key columns and their meanings:
 
 ## Tech Stack
 
+Python 3.12
+Docker and Docker Compose for containerization
+Minsearch for full-text search
+Web App: Streamlit 
+Grafana for monitoring and PostgreSQL as the backend for it
+OpenAI as an LLM
+
+-----
+
 •   Embeddings: Huggingface Transformers (multi-qa-MiniLM-L6-cos-v1) 🤖
 •   Vector Store: LanceDB 🗂️
 •   Info Retrieval: Tantivy 🔍, Cosine Similarity 🔗, cross-encoder reranker, sentence-window retrieval
@@ -61,6 +70,8 @@ Here's a breakdown of the key columns and their meanings:
 - **RAG-Powered**: The chatbot utilizes the power of Retrieval Augmented Generation to provide relevant and accurate information tailored to user queries.
 
 ## Project Structure
+
+Run the command ```tree /F``` in the project main folder to display the directory structure up to the last element
 
 ```plaintext
 📂 datatalks-final-project
@@ -159,16 +170,12 @@ API_HOST=groq
 GROQ_API_KEY='your groq api key'
 GROQ_MODEL=llama3-8b-8192 (my model, you can replace with your model name)
 
-# Needed for Ollama:
-OLLAMA_ENDPOINT=http://localhost:11434/v1
-OLLAMA_MODEL=llama3.1
-
 # Needed for OpenAI.com:
 OPENAI_API_KEY='your openai api key'
 OPENAI_MODEL=gpt-3.5-turbo (my model, you can replace with your model name)
 
 ```
-### How to Set Up
+#### How to Set Up
 Create a .env file in the root of your project directory.
 Copy the example provided above into your .env file.
 Replace placeholder values with your actual API keys and model names as needed.
