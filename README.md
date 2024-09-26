@@ -149,14 +149,8 @@ Make sure you have Python 3.8+ installed. Install the required Python packages:
 pip install -r requirements.txt
 ```
 
-3. Prepare DATA
 
-Open the file 'dataset/gold_standard_truth/generate_ground_truth.py', insert your openai or groq API key there and run the python script.
-```bash
-python generate_ground_truth.py
-```
-
-4. Environment Variables
+3.1 Environment Variables
 
 This project relies on environment variables to configure API access. You will need to create a .env file in the root of your project directory with the following structure:
 
@@ -179,6 +173,21 @@ OPENAI_MODEL=gpt-3.5-turbo (my model, you can replace with your model name)
 Create a .env file in the root of your project directory.
 Copy the example provided above into your .env file.
 Replace placeholder values with your actual API keys and model names as needed.
+
+
+3.2 Change the path variable in ```config.py``` file
+
+```plaintext
+# change the Base folder path
+BASE_FOLDER = 'C:/Users/karth/Documents/datatalks-final-project/'
+```
+
+4. Prepare DATA
+
+Open the file 'dataset/gold_standard_truth/generate_ground_truth.py', insert your openai or groq API key there and run the python script.
+```bash
+python generate_ground_truth.py
+```
 
 
 5. Data Ingestion

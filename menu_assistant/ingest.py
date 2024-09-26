@@ -2,6 +2,7 @@ import json
 import os
 import minsearch
 from tqdm import tqdm
+import config
 
 # Setup project paths
 base_folder = 'D:/Projects/AI-Restaurent-Chat-bot/'
