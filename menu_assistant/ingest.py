@@ -11,7 +11,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 # Now you can import the config module
 import config
 
-
+DATA_PATH = os.getenv("DATA_PATH","../dataset/main_faq_database.json")
 
 def load_index(data_path=config.dataset_folder + "main_faq_database.json"):
     # Load the JSON file

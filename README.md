@@ -50,7 +50,7 @@ Docker and Docker Compose for containerization
 Minsearch for full-text search
 Web App: Streamlit 
 Grafana for monitoring and PostgreSQL as the backend for it
-OpenAI as an LLM
+Groq as an LLM
 
 -----
 
@@ -275,3 +275,11 @@ db_prep.py - the script for initializing the database
 
 ## Disclaimer
 This chatbot is for informational purposes only and was created as a project for the LLM Zoomcamp course. The first draft has been submitted, and further work including dashboard and database integration will be completed before the next attempt.
+
+# Reproducibility
+This project is fully reproducible. All necessary instructions for running the code, from setting up the environment to executing the scripts, are provided. The dataset used is accessible, and the code is organized for easy execution.
+
+# Dockerization
+The project includes a docker-compose for managing dependencies.
+
+Hybrid Search: Implemented and evaluated

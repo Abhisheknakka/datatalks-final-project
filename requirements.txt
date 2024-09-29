@@ -9,3 +9,4 @@ genism
 -U sentence-transformers
 faiss-cpu
 pgcli
+psycopg2==2.9.6
