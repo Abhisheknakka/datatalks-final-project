@@ -282,4 +282,13 @@ This project is fully reproducible. All necessary instructions for running the c
 # Dockerization
 The project includes a docker-compose for managing dependencies.
 
+the easiest way torun this application is  with 
+
+```bash
+docker-compose up
+```
+if yo udont want to use docker and run locally , you need to manually prepare the environment and install all  the dependencies.
+
+we use `pipenv` for managing dependencies 
+
 Hybrid Search: Implemented and evaluated
