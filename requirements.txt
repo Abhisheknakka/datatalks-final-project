@@ -1,12 +1,8 @@
-#pip install - requirements.txt
-
+python-dotenv
 openai
 python-dotenv
-elasticsearch
 groq
 tiktoken
-genism
 sentence-transformers
-faiss-cpu
 pgcli
-psycopg2==2.9.6
+psycopg2-binary  # Use this instead of psycopg2==2.9.6
