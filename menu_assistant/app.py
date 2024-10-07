@@ -49,7 +49,7 @@ if st.button("Submit"):
     else:
         with st.spinner("Fetching answer..."):
             # Call the RAG pipeline
-            answer_data = rag.rag(query, model=MODEL_NAME) = str(uuid.uuid4())
+            answer_data = rag.rag(query, model=MODEL_NAME)
 
             db.save_conversation(
                 conversation_id=
