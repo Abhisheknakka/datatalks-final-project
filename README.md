@@ -255,6 +255,7 @@ streamlit run app.py
 9. Monitoring and User Feedback
 There is no dashboard to monitor.
 
+10. Deploted on streamlit cloud ```datatalks-final-project-menu-chatbot.streamlit.app```
 
 ## Code
 
