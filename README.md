@@ -251,12 +251,7 @@ streamlit run app.py
 <img src="fig/ui.jpeg" alt="" width="500"/>
 
 9. Monitoring and User Feedback
-To monitor the application and view user feedback, run the dashboard:
-
-```bash
-streamlit run monitoring_dashboard.py
-```
-The system includes a monitoring feature that collects user feedback and displays it on a dashboard created with Streamlit and Plotly. The dashboard includes various charts to track system performance and user interactions. Link to Monitoring Dashboard -> https://monitoringdashboard.streamlit.app/
+There is no dashboard to monitor.
 
 
 ## Code

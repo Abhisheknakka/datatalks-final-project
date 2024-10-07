@@ -1,19 +1,17 @@
-FROM python: 3.12-slim
+FROM python:3.12-slim
 
 WORKDIR /app
 
-RUN pip install pipenv
+# Copy requirements.txt and install dependencies
+COPY requirements.txt .
+RUN pip install  -r requirements.txt
 
-COPY dataset/main_faq_database.json
-COPY ["Pipfile", "Pipfile.lock", "./"]
-
-# Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
-RUN pipenv install --deploy --ignore-pipfile --system
-
+# Copy other necessary files
+COPY dataset/main_faq_database.json /app/dataset/main_faq_database.json
 COPY menu_assistant .
+
 # Expose port for Streamlit
 EXPOSE 8501
 
-# Run the streamlit app
+# Run the Streamlit app
 CMD ["streamlit", "run", "menu_assistant/app.py"]
