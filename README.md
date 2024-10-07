@@ -49,18 +49,7 @@ Python 3.12
 Docker and Docker Compose for containerization
 Minsearch for full-text search
 Web App: Streamlit 
-Grafana for monitoring and PostgreSQL as the backend for it
 Groq as an LLM
-
------
-
-•   Embeddings: Huggingface Transformers (multi-qa-MiniLM-L6-cos-v1) 🤖
-•   Vector Store: LanceDB 🗂️
-•   Info Retrieval: Tantivy 🔍, Cosine Similarity 🔗, cross-encoder reranker, sentence-window retrieval
-•   LLM API: Groq cloud, open ai 
-•   Web App: Streamlit 🖥️
-•   Deployment: Streamlit Cloud 🌐
-•   User Database: MongoDB 📦
 
 ## Features
 
@@ -71,7 +60,7 @@ Groq as an LLM
 
 ## Project Structure
 
-Run the command ```tree /F``` in the project main folder to display the directory structure up to the last element
+Run the command ```tree /F``` in the command prompt of main folder to display the directory structure up to the last element
 
 ```plaintext
 📂 datatalks-final-project
@@ -156,7 +145,7 @@ pip install -r requirements.txt
 
 This project relies on environment variables to configure API access. You will need to create a .env file in the root of your project directory with the following structure:
 
-Example .env File
+create an ```.env``` File in the below format and change your api keys and model names accoridngly.
 
 ```plaintext
 # API_HOST can be either 'groq', 'openai', 'ollama':
@@ -170,18 +159,6 @@ GROQ_MODEL=llama3-8b-8192 (my model, you can replace with your model name)
 OPENAI_API_KEY='your openai api key'
 OPENAI_MODEL=gpt-3.5-turbo (my model, you can replace with your model name)
 
-```
-#### How to Set Up
-Create a .env file in the root of your project directory.
-Copy the example provided above into your .env file.
-Replace placeholder values with your actual API keys and model names as needed.
-
-
-3.2 Change the path variable in ```config.py``` file
-
-```plaintext
-# change the Base folder path
-BASE_FOLDER = 'C:/Users/karth/Documents/datatalks-final-project/'
 ```
 
 4. Prepare DATA
@@ -252,10 +229,9 @@ streamlit run menu_assistant/app.py
 
 <img src="fig/ui.jpeg" alt="" width="500"/>
 
-9. Monitoring and User Feedback
-There is no dashboard to monitor.
+9. Monitoring and User Feedback- There is no dashboard to monitor. I couldn't implement it.
 
-10. Deploted on streamlit cloud ```datatalks-final-project-menu-chatbot.streamlit.app```
+10. Deployed on streamlit cloud ```datatalks-final-project-menu-chatbot.streamlit.app```[App-Link](datatalks-final-project-menu-chatbot.streamlit.app)
 
 ## Code
 
@@ -266,8 +242,6 @@ app.py - the streamlit  application, entry point of the app.
 rag.py - the main RAG logic for building the retrieving the data and building the prompt
 ingest.py - loading the data into the knowledge base
 minsearch.py - an in-memory search engine
-db.py - the logic for logging the requests and responses to postgres
-db_prep.py - the script for initializing the database
 
 
 
@@ -280,13 +254,12 @@ This project is fully reproducible. All necessary instructions for running the c
 # Dockerization
 The project includes a docker-compose for managing dependencies.
 
-the easiest way torun this application is  with 
+the easiest way to run this application is  with 
 
 ```bash
 docker-compose up
 ```
-if yo udont want to use docker and run locally , you need to manually prepare the environment and install all  the dependencies.
 
-we use `pipenv` for managing dependencies 
+### Acknowledgement
 
-Hybrid Search: Implemented and evaluated
+Thanks to Alexey, course participants and datatalks club team for their support and value feedback throughout the learning process.
