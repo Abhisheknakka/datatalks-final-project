@@ -231,7 +231,7 @@ streamlit run menu_assistant/app.py
 
 9. Monitoring and User Feedback- There is no dashboard to monitor. I couldn't implement it.
 
-10. Deployed on streamlit cloud ```datatalks-final-project-menu-chatbot.streamlit.app```[App-Link](datatalks-final-project-menu-chatbot.streamlit.app)
+10. Deployed on streamlit cloud ```datatalks-final-project-menu-chatbot.streamlit.app```[App-Link](https://datatalks-final-project-menu-chatbot.streamlit.app)
 
 ## Code
 
