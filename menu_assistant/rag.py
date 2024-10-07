@@ -6,12 +6,13 @@ import json
 import pandas as pd
 from groq import Groq
 from dotenv import load_dotenv
+load_dotenv()
+
 import os
 from sklearn.feature_extraction.text import CountVectorizer
 from tqdm.auto import tqdm
 
 # Setup the OpenAI client to use either Groq, OpenAI.com, or Ollama API
-load_dotenv()
 API_HOST = os.getenv("API_HOST")
 
 
