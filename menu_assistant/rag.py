@@ -34,7 +34,8 @@ elif API_HOST == "openai":
 else:
     print("No LLM Selected")
 
-
+# to run in streamlit cloud, i am hard coding the MODEL_NAME to groq, you can change the model as required
+MODEL_NAME = os.getenv("GROQ_MODEL")
 index = ingest.load_index()
 
 
