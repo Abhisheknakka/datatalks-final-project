@@ -51,13 +51,6 @@ if st.button("Submit"):
             # Call the RAG pipeline
             answer_data = rag.rag(query, model=MODEL_NAME)
 
-            db.save_conversation(
-                conversation_id=
-                question=
-                answer_data=answer_data
-                
-            )
-
             # Display the result
             st.write(f"Question: {query}")
             st.write(f"Answer: {answer_data['answer']}")
