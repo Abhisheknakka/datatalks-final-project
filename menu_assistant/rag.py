@@ -33,10 +33,12 @@ elif API_HOST == "openai":
     client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
     MODEL_NAME = os.getenv("OPENAI_MODEL")
 else:
-    print("No LLM Selected")
+    
+    MODEL_NAME = "llama3-8b-8192"  # Set a default model if none selected
+    print("groq Selected")
+
 
 # to run in streamlit cloud, i am hard coding the MODEL_NAME to groq, you can change the model as required
-MODEL_NAME = "llama3-8b-8192"
 index = ingest.load_index()
 
 
