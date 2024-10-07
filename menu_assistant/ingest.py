@@ -13,7 +13,7 @@ import config
 
 DATA_PATH = os.getenv("DATA_PATH","../dataset/main_faq_database.json")
 
-def load_index(data_path=config.dataset_folder + "main_faq_database.json"):
+def load_index(data_path=os.path.join('dataset', 'main_faq_database.json')):
     # Load the JSON file
     with open(data_path, 'r') as f:
         data = json.load(f)
