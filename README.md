@@ -194,11 +194,11 @@ python generate_ground_truth.py
 
 5. Data Ingestion
 
-Before running the application, you need to perform data ingestion. Run the Python script `menu_assistant/data_ingestion.py` to load the data into the knowledge base.
+Before running the application, you need to perform data ingestion. Run the Python script `menu_assistant/ingest.py` to load the data into the knowledge base.
 
 ```bash
 cd datatalks-final-project/menu_assistant
-python data_ingestion.py
+python ingest.py
 ```
 
 6. Retrieval Performance
@@ -242,12 +242,12 @@ NON_RELEVANT       0.08
 results stored in file ```rag-eval-llama3-8b-8192.csv```
 
 
-8. Run the Streamlit application
+8. Run the Streamlit application locally
 Launch the Streamlit app to interact with the RAG system:
 
 ```bash
-cd datatalks-final-project/menu_assistant
-streamlit run app.py
+cd datatalks-final-project
+streamlit run menu_assistant/app.py
 ```
 
 <img src="fig/ui.jpeg" alt="" width="500"/>

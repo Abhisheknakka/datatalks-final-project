@@ -7,10 +7,8 @@ import sys
 # Add the parent directory to the system path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-# Now you can import the config module
-import config
-
-DATA_PATH = os.getenv("DATA_PATH","../dataset/main_faq_database.json")
+data_path = os.getenv("DATA_PATH","../dataset/main_faq_database.json")
+data_path = os.path.join('dataset', 'main_faq_database.json')
 
 def load_index(data_path=os.path.join('dataset', 'main_faq_database.json')):
     # Load the JSON file

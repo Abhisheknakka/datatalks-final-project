@@ -4,9 +4,8 @@ import time
 from dotenv import load_dotenv
 from openai import OpenAI
 from groq import Groq
-import minsearch
 import json
-import minsearch
+from . import minsearch  # use relative import if needed
 import rag
 
 # Load environment variables
@@ -57,16 +56,3 @@ if st.button("Submit"):
             st.write(f"Response Time: {answer_data['response_time']} seconds")
             st.write(f"Relevance: {answer_data['relevance']}")
             st.write(f"Cost: ${answer_data['openai_cost']:.6f}")
-
-# Feedback Section
-st.subheader("Provide Feedback")
-
-conversation_id = st.text_input("Enter Conversation ID for Feedback:")
-feedback = st.radio("Feedback:", options=[1, -1], index=0)
-
-if st.button("Submit Feedback"):
-    if not conversation_id:
-        st.error("Please enter a valid conversation ID.")
-    else:
-        # In reality, this would save the feedback to a database or file.
-        st.success(f"Feedback received for conversation {conversation_id}: {feedback}")
