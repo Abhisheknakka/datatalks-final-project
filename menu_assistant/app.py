@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from openai import OpenAI
 from groq import Groq
 import json
-from . import minsearch  # use relative import if needed
+import minsearch  # use relative import if needed
 import rag
 
 # Load environment variables
