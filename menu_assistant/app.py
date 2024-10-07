@@ -6,6 +6,7 @@ from openai import OpenAI
 from groq import Groq
 import minsearch
 import json
+import minsearch
 import rag
 
 # Load environment variables
