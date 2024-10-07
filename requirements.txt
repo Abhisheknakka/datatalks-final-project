@@ -1,11 +1,9 @@
 python-dotenv
 openai
 pandas
-sklearn
+scikit-learn
 python-dotenv
 streamlit
 groq
-tiktoken
 sentence-transformers
-pgcli
-psycopg2-binary  # Use this instead of psycopg2==2.9.6
+
