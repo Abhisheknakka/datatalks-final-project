@@ -7,7 +7,6 @@ from groq import Groq
 import minsearch
 import json
 import rag
-import db
 
 # Load environment variables
 load_dotenv()
