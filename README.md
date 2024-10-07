@@ -104,6 +104,8 @@ Run the command ```tree /F``` in the project main folder to display the director
 ├── 📂 menu_assistant
 │   ├── app.py
 │   ├── data_ingestion.py
+│   ├── ingest.py
+│   ├── rag.py
 │   ├── minsearch.py
 │   └── 📂 __pycache__
 │       ├── app.py
