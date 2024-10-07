@@ -38,8 +38,19 @@ else:
 # App Title
 st.title("Restaurant Chatbot with RAG")
 
+
+st.write(f"""
+Enhance your dining experience with this chatbot! It helps waitstaff by making the menu more transparent and accessible to customers, saving time for everyone. Ask questions like:
+
+- What ingredients are in this cake?
+- Do you have a cake with XYZ?
+- What's the price of this item?
+- What is the cheapest cake available?
+- Can you show me cakes under $10?
+""")
 # Input for the user query
 query = st.text_input("Enter your question about the restaurant menu:")
+
 
 # Button to handle question res
 if st.button("Submit"):
@@ -51,7 +62,7 @@ if st.button("Submit"):
             answer_data = rag.rag(query, model=MODEL_NAME)
 
             # Display the result
-            st.write(f"Question: {query}")
+            
             st.write(f"Answer: {answer_data['answer']}")
             st.write(f"Response Time: {answer_data['response_time']} seconds")
             st.write(f"Relevance: {answer_data['relevance']}")
