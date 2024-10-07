@@ -48,6 +48,7 @@ Enhance your dining experience with this chatbot! It helps waitstaff by making t
 - What is the cheapest cake available?
 - Can you show me cakes under $10?
 """)
+
 # Input for the user query
 query = st.text_input("Enter your question about the restaurant menu:")
 
