@@ -36,7 +36,7 @@ else:
     print("No LLM Selected")
 
 # to run in streamlit cloud, i am hard coding the MODEL_NAME to groq, you can change the model as required
-MODEL_NAME = os.getenv("GROQ_MODEL")
+MODEL_NAME = "llama3-8b-8192"
 index = ingest.load_index()
 
 
