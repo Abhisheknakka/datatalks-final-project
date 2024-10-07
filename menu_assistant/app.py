@@ -7,6 +7,7 @@ from groq import Groq
 import minsearch
 import json
 import rag
+import db
 
 # Load environment variables
 load_dotenv()
@@ -31,7 +32,8 @@ elif API_HOST == "openai":
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
     MODEL_NAME = os.getenv("OPENAI_MODEL")
 else:
-    st.write("No LLM Selected")
+    MODEL_NAME = "llama3-8b-8192"  # Set a default model if none selected
+    st.write("groq Selected")
     st.stop()
 
 # App Title
@@ -40,14 +42,21 @@ st.title("Restaurant Chatbot with RAG")
 # Input for the user query
 query = st.text_input("Enter your question about the restaurant menu:")
 
-# Button to handle question submission
+# Button to handle question res
 if st.button("Submit"):
     if not query:
         st.error("Please enter a question.")
     else:
         with st.spinner("Fetching answer..."):
             # Call the RAG pipeline
-            answer_data = rag.rag(query, model=MODEL_NAME)
+            answer_data = rag.rag(query, model=MODEL_NAME) = str(uuid.uuid4())
+
+            db.save_conversation(
+                conversation_id=
+                question=
+                answer_data=answer_data
+                
+            )
 
             # Display the result
             st.write(f"Question: {query}")
